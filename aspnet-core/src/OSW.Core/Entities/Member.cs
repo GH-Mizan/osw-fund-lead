@@ -14,5 +14,6 @@ namespace OSW.Entities
         public string Email { get; set; }
         public string PrimaryContact { get; set; }
         public string PotoPath { get; set; }
+        public bool Active { get; set; }
     }
 }
