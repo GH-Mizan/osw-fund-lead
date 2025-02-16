@@ -1,0 +1,45 @@
+<form class="form-horizontal" autocomplete="off" #memberEtryModal="ngForm" (ngSubmit)="save()">
+    <abp-modal-header [title]="'CreateNewUser' | localize" (onCloseClick)="bsModalRef.hide()"></abp-modal-header>
+    <div class="modal-body">
+        <tabset>
+            <tab heading="Basic" class="pt-3 px-2">
+                <div class="form-group row required">
+                    <label class="col-md-3 col-form-label" for="name">{{ "Name" | localize }}</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" name="name" id="name" required maxlength="64"
+                            [(ngModel)]="member.name" #nameModel="ngModel" #nameEl />
+                        <abp-validation-summary [control]="nameModel" [controlEl]="nameEl"></abp-validation-summary>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="email">Email</label>
+                    <div class="col-md-9">
+                        <input type="email" class="form-control" name="email" id="email"
+                            [(ngModel)]="member.email" #emailModel="ngModel" #emailEl />
+                    </div>
+                </div>
+                <div class="form-group row required">
+                    <label class="col-md-3 col-form-label" for="primaryContact">Primary Contact</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" name="primaryContact" id="primaryContact" required minlength="11"
+                            maxlength="256" [(ngModel)]="member.primaryContact" #primaryContactModel="ngModel" #primaryContactEl />
+                        <abp-validation-summary [control]="primaryContactModel"
+                            [controlEl]="primaryContactEl"></abp-validation-summary>
+                    </div>
+                </div>
+            </tab>
+            <tab heading="Details" class="pt-3 px-2">
+                <div class="form-group row required">
+                    <label class="col-md-3 col-form-label" for="address">Address</label>
+                    <div class="col-md-9">
+                        <textarea class="form-control" name="address" id="address" required
+                            [(ngModel)]="member.address" #addressModel="ngModel" #addressEl></textarea>
+                        <abp-validation-summary [control]="addressModel" [controlEl]="addressEl"></abp-validation-summary>
+                    </div>
+                </div>
+            </tab>
+        </tabset>
+    </div>
+    <abp-modal-footer [cancelDisabled]="saving" [saveDisabled]="!memberEtryModal.form.valid || saving"
+        (onCancelClick)="bsModalRef.hide()"></abp-modal-footer>
+</form>
