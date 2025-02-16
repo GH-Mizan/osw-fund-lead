@@ -18,4 +18,5 @@ public class OSWDbContext : AbpZeroDbContext<Tenant, Role, User, OSWDbContext>
 
     public DbSet<Member> Members { get; set; }
     public DbSet<MemberDetail> MemberDetails { get; set; }
+    public DbSet<Desgnation> Desgnations { get; set; }
 }

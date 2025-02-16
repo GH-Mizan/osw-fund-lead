@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OSW.EntityFrameworkCore;
 
@@ -11,9 +12,11 @@ using OSW.EntityFrameworkCore;
 namespace OSW.Migrations
 {
     [DbContext(typeof(OSWDbContext))]
-    partial class OSWDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250216052450_Desigation_Added")]
+    partial class Desigation_Added
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
